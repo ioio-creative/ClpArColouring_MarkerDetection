@@ -40,10 +40,10 @@ by Christopher Wong, 2017-08-14
 #include <opencv2/opencv.hpp>
 
 void processSingleImage(const cv::Mat& image, const int refMarkers[4][5][5],
-	bool isMarkersPresent[4], bool& isControlMarkerPresentAndNotDisplaced, 
+	bool isMarkersPresent[4], bool& isControlMarkerPresentAndNotDisplaced,
 	std::string outputImageName);
 bool processFrame(const cv::Mat& cameraFrame, MarkerDetector& markerDetector,
-	bool isMarkersPresent[4], bool& isControlMarkerPresentAndNotDisplaced, 
+	bool isMarkersPresent[4], bool& isControlMarkerPresentAndNotDisplaced,
 	std::string outputImageName);
 
 // TODO:
@@ -85,7 +85,7 @@ const int refMarkersToTest[4][5][5] =
 		{ 1, 0, 1, 0, 0 },
 		{ 0, 0, 0, 0, 1 },
 		{ 0, 1, 1, 1, 0 }
-	},	
+	},
 };
 
 // served as control to detect if the coloured paper is "curved"
@@ -106,7 +106,7 @@ const int controlMarkerToTest[5][5]
 // targetWarpedImgWidth, targetWarpedImgHeight are the width and height
 // of the warped result
 // used in cv::warpPerspective
-const int targetWarpedImgWidth = 2480;
+const int targetWarpedImgWidth = 2481;
 const int targetWarpedImgHeight = 3508;
 
 // targetWarpedImgMarkerPoints are the coordinates of the markers in the
@@ -115,15 +115,15 @@ const int targetWarpedImgHeight = 3508;
 // targetWarpedImgMarkerPoints have to be in fixed order:
 // top-left, top-right, bottom-left, bottom-right
 const cv::Point2f targetWarpedImgMarkerPoints[4] =
-{		
-	cv::Point2f(212.054993, 198.779602),
-	cv::Point2f(2269.94629, 198.778610),
-	cv::Point2f(211.998566, 2776.00024),
-	cv::Point2f(2269.69458, 2776.41992)
+{
+	cv::Point2f(212.054626, 198.778656),
+	cv::Point2f(2269.94556, 198.778961),
+	cv::Point2f(211.999084, 2776.00000),
+	cv::Point2f(2269.69287, 2776.41846)
 };
 
 const cv::Point2f targetControlMarkerPoint =
-	cv::Point2f(1257.50073, 2887.50000);
+cv::Point2f(1254.50037, 2889.49976);
 const int allowedDisplacementOfControlMarkerInWarpedImage = 25;
 
 int main(int argc, const char * argv[])
@@ -151,8 +151,8 @@ int main(int argc, const char * argv[])
 
 			bool isMarkersPresent[4] = { false, false, false, false };
 			bool isControlMarkerPresentAndNotDisplaced = false;
-			processSingleImage(testImage, refMarkersToTest, isMarkersPresent, 
-				isControlMarkerPresentAndNotDisplaced, outputImageName);			
+			processSingleImage(testImage, refMarkersToTest, isMarkersPresent,
+				isControlMarkerPresentAndNotDisplaced, outputImageName);
 
 			// Important: TODO!!! Requires commenting
 			// Different integer codes will be returned from the main function depending on
@@ -200,21 +200,21 @@ int main(int argc, const char * argv[])
 
 
 void processSingleImage(const cv::Mat& image, const int refMarkers[4][5][5],
-	bool isMarkersPresent[4], bool& isControlMarkerPresentAndNotDisplaced, 
+	bool isMarkersPresent[4], bool& isControlMarkerPresentAndNotDisplaced,
 	std::string outputImageName)
 {
-	MarkerDetector markerDetector(refMarkers);	
-	processFrame(image, markerDetector, isMarkersPresent, 
+	MarkerDetector markerDetector(refMarkers);
+	processFrame(image, markerDetector, isMarkersPresent,
 		isControlMarkerPresentAndNotDisplaced, outputImageName);
 }
 
 bool processFrame(const cv::Mat& cameraFrame, MarkerDetector& markerDetector,
-	bool isMarkersPresent[4], bool& isControlMarkerPresentAndNotDisplaced, 
+	bool isMarkersPresent[4], bool& isControlMarkerPresentAndNotDisplaced,
 	std::string outputImageName)
 {
 	bool shouldQuit = false;
 	isControlMarkerPresentAndNotDisplaced = false;
-	
+
 	// Clone image used for background (we will draw overlay on it)
 	cv::Mat img = cameraFrame.clone();
 
