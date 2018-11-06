@@ -115,7 +115,7 @@ const int targetWarpedImgHeight = 3508;
 // targetWarpedImgMarkerPoints have to be in fixed order:
 // top-left, top-right, bottom-left, bottom-right
 const cv::Point2f targetWarpedImgMarkerPoints[4] =
-{
+{		
 	cv::Point2f(212.054626, 198.778656),
 	cv::Point2f(2269.94556, 198.778961),
 	cv::Point2f(211.999084, 2776.00000),
@@ -123,7 +123,7 @@ const cv::Point2f targetWarpedImgMarkerPoints[4] =
 };
 
 const cv::Point2f targetControlMarkerPoint =
-cv::Point2f(1254.50037, 2889.49976);
+	cv::Point2f(1254.50037, 2889.49976);
 const int allowedDisplacementOfControlMarkerInWarpedImage = 25;
 
 int main(int argc, const char * argv[])
