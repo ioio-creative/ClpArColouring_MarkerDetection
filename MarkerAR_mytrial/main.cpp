@@ -106,8 +106,8 @@ const int controlMarkerToTest[5][5]
 // targetWarpedImgWidth, targetWarpedImgHeight are the width and height
 // of the warped result
 // used in cv::warpPerspective
-const int targetWarpedImgWidth = 2482;
-const int targetWarpedImgHeight = 3509;
+const int targetWarpedImgWidth = 2481;
+const int targetWarpedImgHeight = 3508;
 
 // targetWarpedImgMarkerPoints are the coordinates of the markers in the
 // reference result
@@ -115,15 +115,15 @@ const int targetWarpedImgHeight = 3509;
 // targetWarpedImgMarkerPoints have to be in fixed order:
 // top-left, top-right, bottom-left, bottom-right
 const cv::Point2f targetWarpedImgMarkerPoints[4] =
-{				
-	cv::Point2f(213.019348, 198.774261),
-	cv::Point2f(2270.98096, 198.769348),
-	cv::Point2f(213.000000, 2775.99927),
-	cv::Point2f(2270.72363, 2776.40967)
+{					
+	cv::Point2f(212.054626, 198.778656),
+	cv::Point2f(2269.94556, 198.778961),
+	cv::Point2f(211.999084, 2776.00000),
+	cv::Point2f(2269.69287, 2776.41846)
 };
 
-const cv::Point2f targetControlMarkerPoint =
-	cv::Point2f(1255.49988, 2889.50049);
+const cv::Point2f targetControlMarkerPoint =	
+	cv::Point2f(1254.50037, 2889.49976);
 const int allowedDisplacementOfControlMarkerInWarpedImage = 25;
 
 int main(int argc, const char * argv[])
