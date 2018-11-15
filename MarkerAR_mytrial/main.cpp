@@ -115,7 +115,7 @@ const int targetWarpedImgHeight = 3508;
 // targetWarpedImgMarkerPoints have to be in fixed order:
 // top-left, top-right, bottom-left, bottom-right
 const cv::Point2f targetWarpedImgMarkerPoints[4] =
-{					
+{						
 	cv::Point2f(212.054626, 198.778656),
 	cv::Point2f(2269.94556, 198.778961),
 	cv::Point2f(211.999084, 2776.00000),
